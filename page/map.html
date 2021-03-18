@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="../css/widget.css?v=6.0.0"
+          charset="UTF-8"/>
+    <script type="text/javascript" src="../js/core/TUI-core.js?v=6.0.0"
+            charset="UTF-8"></script>
+    <script type="text/javascript" src="../js/lang/langs.js?v=6.0.0"
+            charset="UTF-8"></script>
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+
+    function killErrors() {
+        return true;
+    }
+    window.onerror = killErrors;
+</script>
+<div id="mapPanel" style="position: absolute;display: block">
+
+</div>
+<div id="panoHolder" style="position:absolute;z-index: 100;width: 50%;height: 100%;right:0px;display: none">
+    <div id="noPanoramaInfo" style="background-color:#D0D0D0;z-index: 200;width:100%;position:absolute;height:100%;display: none">
+        <div id="noPanoramaTip" style="position:absolute;font-family: '微软雅黑';border: 1px solid #FFC337;background-color:#FFEFB6;margin-left:40%;margin-top:40%;height:42px;width:210px;font-size: 14px">对不起，该地区暂不支持街景模式请访问<a href="http://map.qq.com" target="_blank">http://map.qq.com</a>查看</div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/maps/map.js?v=6.0.6"
+        charset="UTF-8"></script>
+</html>

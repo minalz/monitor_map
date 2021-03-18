@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>trajectory</title>
+    <link rel="stylesheet" type="text/css" href="../css/widget.css" charset="UTF-8"/>
+    <!-- 国外访问 -->
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBczwA1o2F5_2JyIc_JEt5ylprGT1Nvpbc"></script>-->
+    <!-- 国内访问 -->
+    <!--<script src="http://maps.google.cn/maps/api/js?key=AIzaSyBczwA1o2F5_2JyIc_JEt5ylprGT1Nvpbc&libraries=drawing,geometry,visualization"></script>-->
+    <!--<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?language=zh-cn&libraries=drawing&key=AIzaSyAX74XP98SZMebTTfC9iiIhFmcNb8dHdyE"></script>-->
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKCSX1zHDhsduXviOs4XYQFnoXyQk3FHo"></script>-->
+    <script type="text/javascript" src="../js/maps/core/TUI-core.js" charset="UTF-8"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/lang/langs.js"></script>
+    <script src="../js/maps/coordinateTool.js"></script>
+    <style>
+        #map{
+            height: 800px;
+            width: 1400px;
+        }
+    </style>
+    <script type="text/javascript" src="../js/maps/imap.js"></script>
+    <!--<script type="text/javascript" src="../js/labelmarker.js"></script>
+    <script type="text/javascript" src="../js/googleImpl.js"></script>-->
+
+</head>
+<body>
+<div id="map"></div>
+<div id="panoHolder" style="position:absolute;z-index: 100;width: 50%;height: 100%;right:0px;display: none">
+    <div id="noPanoramaInfo" style="background-color:#D0D0D0;z-index: 200;width:100%;position:absolute;height:100%;display: none">
+        <div id="noPanoramaTip" style="position:absolute;font-family: '微软雅黑';border: 1px solid #FFC337;background-color:#FFEFB6;margin-left:40%;margin-top:40%;height:42px;width:210px;font-size: 14px">对不起，该地区暂不支持街景模式请访问<a href="http://map.qq.com" target="_blank">http://map.qq.com</a>查看</div>
+    </div>
+</div>
+<div>
+    <button id="start">开始</button>
+    <button id="stop">暂停</button>
+    <button id="restart">重新开始</button>
+    <input type="text" id="interval">
+    <button id="playInterval">加速</button>
+    <input type="text" id="index">
+    <button id="restartIndex">重新从此处开始</button>
+</div>
+<script type="text/javascript" src="../js/trackPos.js"></script>
+</body>
+</html>

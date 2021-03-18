@@ -1,0 +1,502 @@
+html, body {
+	margin: 0;
+	border: 0 none;
+	overflow: hidden;
+	height: 100%;
+	font-size: 12px;
+}
+
+#mapPanel {
+	width: 100%;
+	height: 100%;
+}
+
+#mapCtn {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	display: none;
+	z-index: 2;
+	bottom:0;
+	right: 0;
+
+}
+
+.exitButton:hover{
+	opacity:0.5;
+}
+
+.exitButton {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	right: 0px;
+	top: 2px;
+	z-index: 999;
+	cursor: pointer;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+#noPanorama{
+    z-index: 99;
+    width: auto;
+    font-size: large;
+    color: #ff0000;
+    border: 1px dashed #000000;
+    background-color: #fafad2 ;
+    height: auto;
+    position: absolute;
+    margin-top: 40%;
+    display: block;
+    left: 20%;
+}
+#chooseInfo{
+	z-index: 99;
+	width: auto;
+    color: #ff0000;
+    font-size: large;
+    border: 1px dashed #000000;
+    background-color: #fafad2;
+	height: auto;
+	position: absolute;
+	margin-top: 40%;
+	display: block;
+	left: 20%;
+
+
+}
+
+.mapControl {
+	z-index: 999;
+	width: 385px;
+	height: 30px;
+	right: 27px;
+	top: 5px;
+	border-style: solid;
+	border-width: 1px;
+	position: absolute;
+	background-color: #eeeeee;
+	padding-left: 5px;
+	font-size: 12px;
+}
+#trafficControl{
+    z-index: 999;
+    width: 66px;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    right: 25px;
+    border-radius: 5px;
+    top: 35px;
+    cursor: pointer;
+    border: 1px solid #9a9afb;
+    position: absolute;
+    background-color: #eeeeee;
+    font-size: 12px;
+}
+#panoControl{
+    z-index: 999;
+    width: 66px;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+    right: 100px;
+    border-radius: 5px;
+    top: 35px;
+    cursor: pointer;
+    border: 1px solid #9a9afb;
+    position: absolute;
+    background-color: #eeeeee;
+    font-size: 12px;
+   /* z-index: 90;
+    height:30px;
+    width: 28px;
+    top: 30px;
+    right:100px;
+    border-style: solid;
+    background-color: #eeeeee;
+    border-width: 1px;
+    position: absolute;
+    font-size: 12px;*/
+
+}
+/*
+.panoControl:hover {
+    opacity: 0.5;
+
+
+
+    transition: all 0.2s linear 0s;
+    z-index: 30;
+}
+*/
+
+.trackingMapControl{
+    z-index: 999;
+    width: 385px;
+    height: 22px;
+    right: 25px;
+    top: 5px;
+    border-style: solid;
+    border-width: 1px;
+    position: absolute;
+    background-color: #eeeeee;
+    padding-left: 5px;
+    font-size: 12px;
+}
+
+.controlIcon {
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	margin-left: 5px;
+
+}
+.panorama{
+	cursor: pointer;
+}
+
+.split {
+	width: 2px;
+	height: 13px;
+	margin-left: 5px;
+}
+
+#select_map_type {
+	z-index: 2;
+	height: 28px;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	margin-left: 5px;
+}
+
+#check_full_map {
+	z-index: 2;
+	height: 22px;
+	line-height: 22px;
+	margin-left: 5px;
+}
+
+
+#pano{
+
+	width: 25px;
+	right: 5px;
+	top:5px;
+	align-content: center;
+	height:25px;
+}
+
+
+
+
+
+.carMarker {
+	width: 200px;
+	margin-left: -16px;
+	margin-left: -16px;
+}
+
+.carMarker>span {
+	border: 1px solid red;
+	display: inline;
+	position: absolute;
+	margin-top: 5px;
+	margin-left: 2px;
+	padding: 1px;
+	background-color: #FFFFFF;
+}
+
+.teamNode {
+	background-image:
+		url(../ext-3.4.0/resources/images/default/tree/folder.gif) !important;
+}
+
+.carOn {
+	background-image: url(../images/car/caron.gif) !important;
+}
+
+.carOff {
+	background-image: url(../images/car/caroff.gif) !important;
+}
+
+.cheCarOn {
+	background-image: url(../images/chexiaomi/caron.gif) !important;
+}
+
+.cheCarOff {
+	background-image: url(../images/chexiaomi/caroff.gif) !important;
+}
+
+.detailCarTip {
+	padding: 0px;
+	width: 340px;
+	font-size: 12px;
+}
+
+.detailCarTip table td {
+	font-size: 12px;
+	height: 20px;
+}
+
+.detailCarTip table label {
+	font-size: 12px;
+	color: #77aabf;
+}
+.detailCCarTip {
+    padding: 0px;
+    width: 340px;
+    font-size: 12px;
+}
+
+.detailCCarTip table td {
+    font-size: 12px;
+    height: 20px;
+}
+
+.detailCCarTip table label {
+    font-size: 12px;
+    color: #77aabf;
+}
+.simpleCarTip {
+	width: 180px;
+	height: 90px;
+	font-size: 12px;
+	padding: 5px;
+}
+
+.simpleCarTip div {
+	margin-top: 5px;
+}
+
+.infoPanel {
+	width: 100%;
+	height: 100%;
+	margin-left: 8px;
+	border: 0px solid;
+}
+
+.infoPanel tr {
+	padding-top: 10px;
+}
+
+.addMarker {
+	margin-top: 15px;
+}
+
+.cmdTable td {
+	font-size: 14px;
+	overflow: auto;
+}
+
+.cmdLabel {
+	vertical-align: top;
+	font-weight: bold;
+}
+
+.labelDiv {
+	position: absolute;
+	text-align: left;
+	padding: 2px;
+	font-size: 12px;
+	background-color: #ffffff;
+	border: 1px solid #4D7CE0;
+	cursor: pointer;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	z-index: 100000;
+}
+
+.headerBox {
+	height: 70px;
+	background: url(../images/head/headerBg11.jpg) repeat-x;
+	position: relative;
+}
+
+.headerLeft {
+	height: 70px;
+	background: url(../images/head/headerLeft11.jpg) no-repeat left top;
+	position: relative;
+}
+
+#row1 {
+	width: auto;
+	color: #ffffff;
+	position: absolute;
+	top: 19px;
+	right: 15px;
+}
+
+#row1 a, #row1 span {
+	color: #ffffff;
+	display: inline-block;
+	font-size: 12px;
+	padding: 0 3px;
+}
+
+#row1 a:hover {
+	text-decoration: underline;
+}
+
+#row2 {
+	width: auto;
+	color: #ffffff;
+	position: absolute;
+	top: 39px;
+	right: 15px;
+}
+
+#row2 a, #row1 span {
+	color: #ffffff;
+	display: inline-block;
+	font-size: 12px;
+	padding: 0 3px;
+}
+
+#row2 a:hover {
+	text-decoration: underline;
+}
+
+.grid_line_alarm {
+	color: #ff0000;
+}
+
+.grid_line_service_stop {
+	background-color: #ff0000;
+	color: #FFFFFF;
+}
+
+.grid_line_service_over {
+	background-color: #FFC0CB;
+	color: #FFFFFF;
+
+}
+
+.grid_line_service_31day {
+	background-color: #A84813;
+	color: #FFFFFF;
+}
+/*iconCls*/
+.remoteset{
+    background: url(../images/extButton/tick.png) left no-repeat;
+}
+.query{
+    background: url(../images/extButton/magnifier.png) left no-repeat;
+}
+.export{
+	background: url(../images/extButton/page_white_excel.png) left no-repeat ;
+}
+.money{
+	background: url(../images/extButton/money_add.png) left no-repeat ;
+}
+.user{
+    background: url(../images/extButton/user.png) left no-repeat ;
+}
+.money_yuan{
+    background: url(../images/extButton/money_yuan.png) left no-repeat ;
+}
+.add{
+	background: url(../images/extButton/map_add.png) left no-repeat ;
+}
+.car{
+    background: url(../images/extButton/car.png) left no-repeat ;
+}
+.title_icon{
+	background: url(../images/extButton/resultset_next.png) left no-repeat ;
+}
+.showAll{
+	background: url(../images/extButton/page_white_magnify.png) left no-repeat ;
+}
+.cancel{
+	background: url(../images/extButton/cancel.png) left no-repeat ;
+}
+.freeAlarm{
+	background: url(../images/extButton/bell_delete.png) left no-repeat !important; ;
+}
+.edit{
+	background: url(../images/extButton/map_edit.png) left no-repeat ;
+}
+.more{
+	background: url(../images/extButton/arrow_down.png) left no-repeat ;
+}
+.hide{
+	background: url(../images/extButton/arrow_up.png) left no-repeat ;
+}
+.play{
+	background: url(../images/extButton/control_play_blue.png) left no-repeat ;
+}
+.stopPlay{
+	background: url(../images/extButton/control_pause_blue.png) left no-repeat ;
+}
+.report{
+	background: url(../images/extButton/report.png) left no-repeat ;
+}
+.save{
+	background: url(../images/extButton/table_save.png) left no-repeat ;
+}
+.delete{
+	background: url(../images/extButton/map_delete.png) left no-repeat ;
+}
+.refresh{
+	background: url(../images/extButton/arrow_refresh.png) left no-repeat ;
+}
+.chartLine{
+	background: url(../images/extButton/chart_line.png) left no-repeat ;
+}
+.chartBar{
+	background: url(../images/extButton/chart_bar.png) left no-repeat ;
+}
+.all{
+	background: url(../images/extButton/car_add.png) left no-repeat ;
+}
+.clean{
+	background: url(../images/extButton/car_delete.png) left no-repeat ;
+}
+.download{
+	background: url(../images/extButton/download.png) left no-repeat ;
+}
+
+
+
+/*空间对象菜单div*/
+.menu {
+	z-index: 999;
+	width: 60px;
+	height: 60px;
+	right: 25px;
+	top: 65px;
+	cursor: pointer;
+	border: 1px solid #9a9afb;
+	position: absolute;
+	background-color: white;
+	font-size: 12px;
+    VISIBILITY: hidden;
+
+
+}
+/*倒计时刷新位置div*/
+.count{
+	z-index: 90;
+	width: 100px;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	top: 5px;
+	left:70px;
+	background-color: #eeeeee;
+	position: absolute;
+	font-size: 12px;
+}
+
+li {
+	list-style: none;
+	line-height: 20px;
+}
+#countHtml{
+	letter-spacing: 3px;
+	color:#ff0000;
+
+}
+
+

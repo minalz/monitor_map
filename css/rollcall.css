@@ -1,0 +1,157 @@
+.topMain{
+    height: 450px;
+    width: 1100px;
+    position: relative;
+    bottom: 34px;
+}
+body, div, span, img, ul, li, table, tr, td, input, button {
+    font-family: "微软雅黑";
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.popupall {
+    width: 490px;
+    background: rgba(255, 255, 255, 1);
+    overflow: hidden;
+    padding-left: 3px;
+}
+
+.popuptop {
+    width: 484px;
+    margin: 12px auto 5px auto;
+    overflow: hidden;
+}
+
+.popmess {
+    width: 50%;
+    float: left;
+    overflow: hidden;
+    padding-top: 5px;
+}
+
+.popmess span {
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: 400;
+    /*  color: rgba(51, 51, 51, 1); */
+}
+.popmess span:NTH-OF-TYPE(1){
+    color:#666666;
+}
+.popmess span:NTH-OF-TYPE(2){
+    color:#000000;
+}
+
+.popothermess {
+    clear: both;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 5px;
+}
+
+.popothermess span {
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+}
+.popothermess span:NTH-OF-TYPE(1){
+    color:#666666;
+}
+.popothermess span:NTH-OF-TYPE(2) a{
+    color:#0074DE;
+    font-weight: bold;
+}
+
+.popupbott {
+    width: 100%;
+    /* padding-bottom: 30px; */
+    overflow: hidden;
+}
+
+.poperationspan {
+    border-top: 1px solid rgba(229, 229, 229, 1);
+    display: block;
+    width: 484px;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    /* padding: 15px 0 2px 0; */
+    margin: 0 auto;
+}
+
+.poperation {
+    width: 490px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.poperation button {
+    display: block;
+    float: left;
+    border: 0;
+    outline: none;
+    width: 88px;
+    height: 26px;
+    /* background: rgba(153, 153, 153, 1); */
+    background: rgba(239,247,255,1);
+    border:1px solid rgba(0,116,222,1);
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 400;
+    color: rgba(0,116,222,1);
+    margin: 10px 5px 0 5px;
+    cursor: pointer;
+}
+.poperation button:hover{
+    background: #0074DE;
+    color:white;
+}
+
+.menuimg{
+    position: relative;
+    top:-4px;
+    margin-left: 7px;
+}
+
+
+.carring{
+    /* width: 100%; */
+    /* background: #ebf0f3; */
+    padding:0px 15px;
+    float:left;
+
+}
+.carring span{
+    display: inline-block;
+    width: 120px;
+    height:30px;
+    font-size:16px;
+    line-height: 30px;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    text-align: center;
+    margin-right: 14px;
+    border-radius:4px;
+    margin: 2px 15px 1px 0;
+}
+.online{
+    background:rgba(47,148,240,1);
+}
+.offline{
+    background:rgba(153,153,153,1);
+}
+.freecar{
+    background:rgba(230,96,96,1);
+}
+.takencar{
+    background:rgba(42,193,156,1);
+}

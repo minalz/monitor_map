@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>车辆地图位置</title>
+    <link rel="stylesheet" type="text/css" href="../css/widget.css" charset="UTF-8"/>
+    <script type="text/javascript" src="../js/maps/core/TUI-core.js" charset="UTF-8"></script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/lang/langs.js"></script>
+    <script src="../js/maps/coordinateTool.js"></script>
+    <style>
+        #map{
+            height: 800px;
+            width: 1400px;
+        }
+    </style>
+    <script type="text/javascript" src="../js/maps/imap.js"></script>
+    <style>
+        .topMain {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        body, div, span, img, ul, li, table, tr, td, input, button {
+            font-family: "微软雅黑";
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .popupall {
+            position: absolute;
+            top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            background: rgba(255, 255, 255, 0.8);
+            overflow: hidden;
+            padding: 0 20px;
+            z-index: 9;
+        }
+
+        .popuptop {
+            width: 100%;
+            margin: 15px auto 0px auto;
+            overflow: hidden;
+        }
+
+        .popmess {
+            width: 25%;
+            float: left;
+            overflow: hidden;
+            padding-bottom: 15px;
+        }
+
+        .popmessothertwo {
+            width: 50%;
+        }
+
+        .popmessotherone {
+            width: 35%;
+        }
+
+        .popmessdir {
+            width: 15%;
+        }
+
+        .popmess span {
+            display: block;
+            float: left;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .popmess span:NTH-OF-TYPE(1) {
+            color: #666666;
+        }
+
+        .popmess span:NTH-OF-TYPE(2) {
+            color: #000000;
+        }
+
+        .tableData {
+            border: 1px solid #c5c5c5;
+            min-height: 600px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            margin-top: 8px;
+        }
+
+        .searchDiv {
+            background: #eee;
+            border: solid 1px #333;
+            left: 36px;
+            top: 85px;
+            display: block;
+            position: absolute;
+            z-index: 19;
+            width: 150px;
+        }
+
+        .searchDiv li {
+            height: 25px;
+            line-height: 25px;
+        }
+
+        .searchDiv li:hover {
+            background: #ccc;
+        }
+
+        talbe {
+            width: 100%;
+        }
+
+        table.gridtable {
+            width: 100%;
+            font-family: verdana, arial, sans-serif;
+            font-size: 11px;
+            color: #333333;
+            border-width: 1px;
+            border-color: #666666;
+            border-collapse: collapse;
+        }
+
+        table.gridtable th {
+            text-align: center;
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            font-size: 16px;
+            font-weight: 800;
+            border-color: inherit;
+            display: table-cell;
+            vertical-align: top;
+            border-top: 1px solid #ddd;
+            border-bottom: 2px solid #ddd;
+            border-left: none;
+            border-right: none;
+        }
+
+        table.gridtable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-top: 1px solid #ddd;
+            border-left: none;
+            border-right: none;
+        }
+        /* table.gridtable tr:hover {
+        background-color: #d8F1Ef;
+        }
+        table.gridtable tr:hover td {background:none;} */
+        #leftDiv {
+            display: block;
+            border: solid 1px #eee;
+            box-sizing: border-box;
+            padding: 15px;
+            margin-top: 10px;
+            font-size: 16px;
+            background-color: #fff;
+        }
+
+        #rightDiv {
+            display: block;
+            box-sizing: border-box;
+        }
+
+        .list-group-item {
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+            margin-bottom: -1px;
+            border: 1px solid #ddd;
+        }
+
+        #companyArea input {
+            font-size: 16px;
+            height: 30px;
+        }
+
+        #companyArea #ext-gen1034 {
+            height: 30px;
+        }
+
+        #companyArea table {
+            width: 100% !important;;
+        }
+
+        .fontB {
+            font-weight: 800;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .topMain {
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .left {
+            width: 30%;
+            height: 100vh;
+            float: left;
+            overflow: scroll;
+        }
+
+        .right {
+            width: 70%;
+            height: 100vh;
+            float: left;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .right #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div class="topMain">
+    <div class="left">
+        <div class="main">
+            <div id="bzWidth"></div>
+            <div id="zkj" style="overflow-y: scroll;">
+                <div id="mainData" class="mainData">
+                    <div id="leftDiv">
+                        <ul class="list-group">
+                            <li class="list-group-item"><label class="fontB"><i18n nameKey="Company">公司</i18n>：</label>
+                                <div id="companyArea" style="width: 100%; height: 30px;"></div></li>
+                            <li class="list-group-item"><label class="fontB"><i18n nameKey="Operating_status">营运状态</i18n>：</label>
+                                <div>
+                                    <select id="taxStatus" style="width: 100%; height: 30px">
+                                        <option value="0" nameKey="VacantVehicle">空车</option>
+                                        <option value="1" nameKey="HiredVehicle">重车</option>
+                                    </select>
+                                </div></li>
+                            <li class="list-group-item"><label class="fontB"><i18n nameKey="VehiclePlate">车牌号</i18n>：</label>
+                                <div>
+                                    <input style="width: 100%; height: 30px" type="text" id="carNo" name="carNo" />
+                                </div></li>
+                            <li class="list-group-item">
+                                <button style="width: 100%; height: 30px; cursor: pointer;" id="search" name="search">
+                                    <i18n nameKey="Search">查询</i18n>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="rightDiv">
+                        <div class="chartClass" id="chart1">
+                            <!-- <div class="chart_title">
+                <span class="title f14">
+                    车辆列表
+                </span>
+                </div> -->
+                            <div class="textbox" style="padding-top: 0px;" id="showList">
+                                <div style="background-color: #fff" class="tableData">
+                                    <table class="gridtable">
+                                        <tr>
+                                            <th><i18n nameKey="licence_plate">车牌号</i18n></th>
+                                            <th><i18n nameKey="JiSSD">速度</i18n></th>
+                                        </tr>
+                                        <tbody id="tableGrid2">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="simplePaging2" style="margin-top: 10px; display: inline-block; overflow-x: scroll;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+
+        <div class="popupall">
+            <div class="popuptop">
+                <div class="popmess">
+                    <span><i18n nameKey="licence_plate">车牌号</i18n>：</span><span id="carNumber"></span>
+                </div>
+                <div class="popmess">
+                    <span><i18n nameKey="CarType">车辆类型</i18n>：</span><span id="label"></span>
+                </div>
+                <div class="popmess popmessotherone">
+                    <span><i18n nameKey="JiSSD">即时速度</i18n>：</span><span id="speed"></span>
+                </div>
+                <div class="popmess popmessdir">
+                    <span><i18n nameKey="Direction">方向</i18n>：</span><span id="direction"></span>
+                </div>
+                <div class="popmess">
+                    <span><i18n nameKey="Mileages">里程</i18n>：</span><span id="mileage"></span>
+                </div>
+                <div class="popmess">
+                    <span><i18n nameKey="StateOfTheVehicle">车辆状态</i18n>：</span><span id="status"></span>
+                </div>
+                <div class="popmess popmessothertwo">
+                    <span><i18n nameKey="least_reportin">最后位置汇报时间</i18n>：</span><span id="lastResponseTime"></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="map"></div>
+        <!--<div class="clear"></div>-->
+    </div>
+
+</div>
+    <script type="text/javascript" src="../js/carLocation.js"></script>
+</body>
+</html>
